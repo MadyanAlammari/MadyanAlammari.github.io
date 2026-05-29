@@ -31,7 +31,13 @@ body::before{content:'';position:fixed;inset:0;background-image:url("https://www
 
 .loader{position:fixed;inset:0;background:#050816;display:flex;align-items:center;justify-content:center;flex-direction:column;z-index:99999;transition:1s;}
 .loader.hide{opacity:0;visibility:hidden;}
-.loader h1{font-size:4rem;font-family:'Syne',sans-serif;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:20px;}
+/* تعديل اللودر لإضافة الأنيميشن للشعار */
+.loader-img {width:150px;height:auto;margin-bottom:20px;animation:floating-pulse 3s ease-in-out infinite;}
+@keyframes floating-pulse{
+  0%{transform:translateY(0) scale(1) rotate(0deg);}
+  50%{transform:translateY(-10px) scale(1.05) rotate(2deg);}
+  100%{transform:translateY(0) scale(1) rotate(0deg);}
+}
 .bar{width:220px;height:6px;background:#111;overflow:hidden;border-radius:10px;}
 .bar span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--pink),var(--cyan),var(--amber));animation:load 2s linear forwards;}
 @keyframes load{100%{width:100%;}}
@@ -40,7 +46,9 @@ body::before{content:'';position:fixed;inset:0;background-image:url("https://www
 .cursor2{width:35px;height:35px;border:1px solid rgba(255,255,255,.4);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:.15s;}
 
 nav{position:fixed;top:20px;left:50%;transform:translateX(-50%);width:92%;padding:18px 40px;background:rgba(255,255,255,.05);backdrop-filter:blur(20px);border:1px solid var(--border);border-radius:18px;display:flex;justify-content:space-between;align-items:center;z-index:999;}
-.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;letter-spacing:1px;}
+/* تعديل الناف بار لإضافة الشعار بجانب النص */
+.logo{display:flex;align-items:center;gap:10px;font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;letter-spacing:1px;}
+.logo img{width:24px;height:24px;object-fit:contain;}
 .logo span{color:var(--cyan);}
 nav ul{display:flex;gap:30px;list-style:none;}
 nav ul a{color:var(--muted);text-decoration:none;font-size:.95rem;transition:.3s;position:relative;}
@@ -66,7 +74,8 @@ nav ul a:hover::after{width:100%;}
 .glow{position:absolute;width:250px;height:250px;background:radial-gradient(circle,var(--pink),transparent 70%);filter:blur(80px);opacity:.4;}
 .ring{position:absolute;width:280px;height:280px;border:2px dashed rgba(255,255,255,.2);border-radius:50%;animation:spin 16s linear infinite;}
 @keyframes spin{100%{transform:rotate(360deg);}}
-.initials{font-size:4rem;font-family:'Syne',sans-serif;font-weight:800;z-index:2;}
+/* تعديل حجم شعار الهيرو الداخلي ليناسب الكارد */
+.hero-card-img{width:90px;height:90px;object-fit:cover;border-radius:50%;z-index:2;margin-bottom:15px;border:2px solid rgba(255,255,255,0.1);}
 .role{margin-top:10px;color:var(--muted);z-index:2;}
 .stats{display:flex;gap:20px;margin-top:30px;z-index:2;}
 .stat{text-align:center;}
@@ -116,14 +125,18 @@ section{padding:120px 8%;}
 .contact-card:hover .arrow{transform:translateX(5px);}
 
 .avatar-wrap{position:relative;display:flex;align-items:center;justify-content:center;}
-.avatar{width:220px;height:220px;border-radius:50%;background:linear-gradient(135deg,var(--pink),var(--cyan));display:flex;align-items:center;justify-content:center;font-size:4rem;font-family:'Syne',sans-serif;font-weight:800;position:relative;z-index:2;}
+/* استبدال الـ Avatar بنصف قطر مناسب لعرض صورة الخلفية الفضائية بشكل دائري */
+.avatar{width:220px;height:220px;border-radius:50%;position:relative;z-index:2;overflow:hidden;border:3px solid rgba(255,255,255,.1);}
+.avatar img{width:100%;height:100%;object-fit:cover;}
 .ripple{position:absolute;border:1px solid rgba(255,255,255,.15);border-radius:50%;animation:ripple 4s infinite;}
 .r1{width:260px;height:260px;}
 .r2{width:330px;height:330px;animation-delay:1s;}
 .r3{width:400px;height:400px;animation-delay:2s;}
 @keyframes ripple{0%{transform:scale(.7);opacity:1;}100%{transform:scale(1.2);opacity:0;}}
 
-footer{padding:40px;text-align:center;color:var(--muted);border-top:1px solid var(--border);}
+/* ستايل الفوتر الإضافي للشعار */
+footer{padding:40px;text-align:center;color:var(--muted);border-top:1px solid var(--border);display:flex;flex-direction:column;align-items:center;gap:15px;}
+footer img{width:45px;height:45px;object-fit:cover;border-radius:50%;border:1px solid rgba(255,255,255,0.1);}
 
 .reveal{opacity:0;transform:translateY(60px);transition:1s;}
 .reveal.active{opacity:1;transform:none;}
@@ -138,8 +151,9 @@ nav ul{display:none;}
 </head>
 <body>
 
+<!-- LOADER (تمت إضافة الشعار هنا مع الانيميشن) -->
 <div class="loader">
-<h1>MA</h1>
+<img src="images/ma-space.png" alt="Madyan Logo" class="loader-img" />
 <div class="bar"><span></span></div>
 </div>
 
@@ -147,8 +161,12 @@ nav ul{display:none;}
 <div class="cursor"></div>
 <div class="cursor2"></div>
 
+<!-- NAVIGATION (تمت إضافة الشعار بدون خلفية قبل الإسم) -->
 <nav>
-<div class="logo">Madyan<span>.</span></div>
+<div class="logo">
+  <img src="images/ma-logo.png" alt="MA" />
+  Madyan<span>.</span>
+</div>
 <ul>
 <li><a href="#about">About</a></li>
 <li><a href="#skills">Skills</a></li>
@@ -159,7 +177,7 @@ nav ul{display:none;}
 </ul>
 </nav>
 
-<!-- HERO -->
+<!-- HERO (تمت إضافة الشعار الفضائي داخل كارد الإحصائيات) -->
 <section class="hero">
 <div>
 <div class="availability">
@@ -176,7 +194,7 @@ Open To Work
 <div class="card3d">
 <div class="glow"></div>
 <div class="ring"></div>
-<div class="initials">MA</div>
+<img src="images/ma-space.png" alt="Madyan" class="hero-card-img" />
 <div class="role">AI & Data Analyst</div>
 <div class="stats">
 <div class="stat"><h3>4.9</h3><p>GPA</p></div>
@@ -252,135 +270,77 @@ Worked with real enterprise datasets and delivered AI-driven training programs a
 
 <!-- PROJECTS -->
 <section id="projects" class="reveal">
-
 <h2 class="section-title">Projects</h2>
-
 <div class="projects-grid">
 
 <!-- AuditAI -->
 <div class="project-card">
 <div class="project-content">
-
 <h1>🧾</h1>
-
 <h3>AuditAI — AI-Powered External Auditor</h3>
-
 <p>
 Senior capstone project at KAU. AI-powered auditing system automating reconciliation,
 VAT validation, duplicate detection, and OCR invoice matching. Tested on 500+ invoices
 with 96.6% matching accuracy and 0 VAT errors. Built as a full web application with
 authentication and live dashboards.
 </p>
-
 <div class="tags">
-
-<span>Python</span>
-<span>Pandas</span>
-<span>OCR</span>
-<span>OpenCV</span>
-<span>pdfplumber</span>
-<span>Supabase</span>
-<span>NumPy</span>
-<span>Risk Scoring</span>
-<span>Invoice Matching</span>
-
+<span>Python</span><span>Pandas</span><span>OCR</span><span>OpenCV</span><span>pdfplumber</span><span>Supabase</span><span>NumPy</span><span>Risk Scoring</span><span>Invoice Matching</span>
 </div>
-
 </div>
 </div>
 
 <!-- Student Outcome -->
 <div class="project-card">
 <div class="project-content">
-
 <h1>🎓</h1>
-
 <h3>Student Outcome Prediction</h3>
-
 <p>
 ML classification system processing 7 datasets with 32K+ student records
 and 10M+ interaction logs. Applied SMOTE, feature engineering, and trained
 Random Forest (85%) and Logistic Regression (82%) models. Deployed as a
 real-time Streamlit prediction app with confidence scoring.
 </p>
-
 <div class="tags">
-
-<span>Scikit-learn</span>
-<span>Random Forest</span>
-<span>Logistic Regression</span>
-<span>SMOTE</span>
-<span>GridSearchCV</span>
-<span>Streamlit</span>
-<span>Feature Engineering</span>
-<span>Python</span>
-<span>Pandas</span>
-
+<span>Scikit-learn</span><span>Random Forest</span><span>Logistic Regression</span><span>SMOTE</span><span>GridSearchCV</span><span>Streamlit</span><span>Feature Engineering</span><span>Python</span><span>Pandas</span>
 </div>
-
 </div>
 </div>
 
 <!-- Flight Delay -->
 <div class="project-card">
 <div class="project-content">
-
 <h1>✈️</h1>
-
 <h3>Flight Delay Intelligence</h3>
-
 <p>
 Analyzed 5.8M+ flight records to identify delay causes,
 seasonal trends, airline performance, and airport efficiency.
 Built interactive Power BI dashboards supporting operational
 insights and scheduling optimization.
 </p>
-
 <div class="tags">
-
-<span>Power BI</span>
-<span>Pandas</span>
-<span>Excel</span>
-<span>EDA</span>
-<span>Business Intelligence</span>
-<span>Data Visualization</span>
-<span>KPI Monitoring</span>
-
+<span>Power BI</span><span>Pandas</span><span>Excel</span><span>EDA</span><span>Business Intelligence</span><span>Data Visualization</span><span>KPI Monitoring</span>
 </div>
-
 </div>
 </div>
 
 <!-- Library Database -->
 <div class="project-card">
 <div class="project-content">
-
 <h1>📚</h1>
-
 <h3>University Library Database Design</h3>
-
 <p>
 Designed a university library SQL database with 10+ tables,
 15+ relationships, ERD modeling, 3NF normalization,
 and advanced SQL queries using real sample data.
 </p>
-
 <div class="tags">
-
-<span>Oracle SQL</span>
-<span>Database Design</span>
-<span>ER Diagram</span>
-<span>Normalization</span>
-<span>3NF</span>
-<span>SQL Queries</span>
-
+<span>Oracle SQL</span><span>Database Design</span><span>ER Diagram</span><span>Normalization</span><span>3NF</span><span>SQL Queries</span>
 </div>
-
 </div>
 </div>
 
 </div>
-
 </section>
 
 <!-- EXPERIENCE -->
@@ -500,7 +460,7 @@ and advanced SQL queries using real sample data.
 </div>
 </section>
 
-<!-- CONTACT -->
+<!-- CONTACT (تمت إضافة الشعار الفضائي داخل دائرة الـ Avatar المتحركة) -->
 <section id="contact" class="reveal">
 <h2 class="section-title">Contact</h2>
 <div class="contact-grid">
@@ -531,13 +491,17 @@ and advanced SQL queries using real sample data.
 <div class="ripple r1"></div>
 <div class="ripple r2"></div>
 <div class="ripple r3"></div>
-<div class="avatar">MA</div>
+<div class="avatar">
+  <img src="images/ma-space.png" alt="Madyan Alammari" />
+</div>
 </div>
 </div>
 </section>
 
+<!-- FOOTER (تمت إضافة الشعار الفضائي في نهاية الصفحة فوق الحقوق) -->
 <footer>
-© 2026 Madyan Alammari — AI & Data Portfolio
+<img src="images/ma-space.png" alt="Madyan Alammari Logo" />
+<div>© 2026 Madyan Alammari — AI & Data Portfolio</div>
 </footer>
 
 <script>
