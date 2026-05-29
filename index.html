@@ -31,10 +31,11 @@ body::before{content:'';position:fixed;inset:0;background-image:url("https://www
 
 .loader{position:fixed;inset:0;background:#050816;display:flex;align-items:center;justify-content:center;flex-direction:column;z-index:99999;transition:1s;}
 .loader.hide{opacity:0;visibility:hidden;}
-.loader-img {width:150px;height:auto;margin-bottom:20px;animation:floating-pulse 3s ease-in-out infinite;}
+/* تكبير شعار اللودر */
+.loader-img {width:200px;height:auto;margin-bottom:25px;animation:floating-pulse 3s ease-in-out infinite;}
 @keyframes floating-pulse{
   0%{transform:translateY(0) scale(1) rotate(0deg);}
-  50%{transform:translateY(-10px) scale(1.05) rotate(2deg);}
+  50%{transform:translateY(-12px) scale(1.05) rotate(2deg);}
   100%{transform:translateY(0) scale(1) rotate(0deg);}
 }
 .bar{width:220px;height:6px;background:#111;overflow:hidden;border-radius:10px;}
@@ -45,9 +46,9 @@ body::before{content:'';position:fixed;inset:0;background-image:url("https://www
 .cursor2{width:35px;height:35px;border:1px solid rgba(255,255,255,.4);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:.15s;}
 
 nav{position:fixed;top:20px;left:50%;transform:translateX(-50%);width:92%;padding:18px 40px;background:rgba(255,255,255,.05);backdrop-filter:blur(20px);border:1px solid var(--border);border-radius:18px;display:flex;justify-content:space-between;align-items:center;z-index:999;}
-/* تكبير الشعار وتنسيق المحاذاة */
-.logo{display:flex;align-items:center;gap:12px;font-family:'Syne',sans-serif;font-weight:800;font-size:1.3rem;letter-spacing:1px;}
-.logo img{width:36px;height:36px;object-fit:contain;}
+/* تكبير إضافي لشعار الناف بار وتعديل المحاذاة لتبدو مثالية */
+.logo{display:flex;align-items:center;gap:14px;font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;letter-spacing:1px;}
+.logo img{width:48px;height:48px;object-fit:contain;}
 .logo span{color:var(--cyan);}
 nav ul{display:flex;gap:30px;list-style:none;}
 nav ul a{color:var(--muted);text-decoration:none;font-size:.95rem;transition:.3s;position:relative;}
@@ -73,7 +74,8 @@ nav ul a:hover::after{width:100%;}
 .glow{position:absolute;width:250px;height:250px;background:radial-gradient(circle,var(--pink),transparent 70%);filter:blur(80px);opacity:.4;}
 .ring{position:absolute;width:280px;height:280px;border:2px dashed rgba(255,255,255,.2);border-radius:50%;animation:spin 16s linear infinite;}
 @keyframes spin{100%{transform:rotate(360deg);}}
-.hero-card-img{width:90px;height:90px;object-fit:cover;border-radius:50%;z-index:2;margin-bottom:15px;border:2px solid rgba(255,255,255,0.1);}
+/* تكبير الشعار داخل كارد الهيرو ليكون بارزاً ومتناسقاً */
+.hero-card-img{width:120px;height:120px;object-fit:cover;border-radius:50%;z-index:2;margin-bottom:15px;border:2px solid rgba(255,255,255,0.12);}
 .role{margin-top:10px;color:var(--muted);z-index:2;}
 .stats{display:flex;gap:20px;margin-top:30px;z-index:2;}
 .stat{text-align:center;}
@@ -123,16 +125,18 @@ section{padding:120px 8%;}
 .contact-card:hover .arrow{transform:translateX(5px);}
 
 .avatar-wrap{position:relative;display:flex;align-items:center;justify-content:center;}
-.avatar{width:220px;height:220px;border-radius:50%;position:relative;z-index:2;overflow:hidden;border:3px solid rgba(255,255,255,.1);}
+/* تكبير دائرة الشعار في قسم كونتكت لتوافق الحجم الجديد */
+.avatar{width:260px;height:260px;border-radius:50%;position:relative;z-index:2;overflow:hidden;border:3px solid rgba(255,255,255,.12);}
 .avatar img{width:100%;height:100%;object-fit:cover;}
 .ripple{position:absolute;border:1px solid rgba(255,255,255,.15);border-radius:50%;animation:ripple 4s infinite;}
-.r1{width:260px;height:260px;}
-.r2{width:330px;height:330px;animation-delay:1s;}
-.r3{width:400px;height:400px;animation-delay:2s;}
+.r1{width:300px;height:300px;}
+.r2{width:370px;height:370px;animation-delay:1s;}
+.r3{width:440px;height:440px;animation-delay:2s;}
 @keyframes ripple{0%{transform:scale(.7);opacity:1;}100%{transform:scale(1.2);opacity:0;}}
 
 footer{padding:40px;text-align:center;color:var(--muted);border-top:1px solid var(--border);display:flex;flex-direction:column;align-items:center;gap:15px;}
-footer img{width:45px;height:45px;object-fit:cover;border-radius:50%;border:1px solid rgba(255,255,255,0.1);}
+/* تكبير الشعار في الفوتر */
+footer img{width:65px;height:65px;object-fit:cover;border-radius:50%;border:1px solid rgba(255,255,255,0.12);}
 
 .reveal{opacity:0;transform:translateY(60px);transition:1s;}
 .reveal.active{opacity:1;transform:none;}
@@ -147,7 +151,6 @@ nav ul{display:none;}
 </head>
 <body>
 
-<!-- LOADER (تحديث مسار ma-logo-space.png) -->
 <div class="loader">
 <img src="images/ma-logo-space.png" alt="Madyan Logo" class="loader-img" />
 <div class="bar"><span></span></div>
@@ -157,7 +160,6 @@ nav ul{display:none;}
 <div class="cursor"></div>
 <div class="cursor2"></div>
 
-<!-- NAVIGATION (تم تكبير حجم الشعار وإلغاء المسافة قبل النقطة) -->
 <nav>
 <div class="logo">
   <img src="images/ma-logo.png" alt="MA" />Madyan<span>.</span>
@@ -172,7 +174,6 @@ nav ul{display:none;}
 </ul>
 </nav>
 
-<!-- HERO (تحديث مسار ma-logo-space.png) -->
 <section class="hero">
 <div>
 <div class="availability">
@@ -198,7 +199,6 @@ Open To Work
 </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about" class="reveal">
 <h2 class="section-title">About Me</h2>
 <p style="max-width:900px;color:var(--muted);line-height:2;font-size:1.05rem;">
@@ -209,7 +209,6 @@ Worked with real enterprise datasets and delivered AI-driven training programs a
 </p>
 </section>
 
-<!-- SKILLS -->
 <section id="skills" class="reveal">
 <h2 class="section-title">Skills</h2>
 <div class="skills">
@@ -231,7 +230,6 @@ Worked with real enterprise datasets and delivered AI-driven training programs a
 </div>
 </section>
  
-<!-- TECH STACK -->
 <section id="tech-stack" class="reveal">
 <h2 class="section-title">Software & Technologies</h2>
 <div class="skills">
@@ -263,12 +261,10 @@ Worked with real enterprise datasets and delivered AI-driven training programs a
 </div>
 </section>
 
-<!-- PROJECTS -->
 <section id="projects" class="reveal">
 <h2 class="section-title">Projects</h2>
 <div class="projects-grid">
 
-<!-- AuditAI -->
 <div class="project-card">
 <div class="project-content">
 <h1>🧾</h1>
@@ -285,7 +281,6 @@ authentication and live dashboards.
 </div>
 </div>
 
-<!-- Student Outcome -->
 <div class="project-card">
 <div class="project-content">
 <h1>🎓</h1>
@@ -302,7 +297,6 @@ real-time Streamlit prediction app with confidence scoring.
 </div>
 </div>
 
-<!-- Flight Delay -->
 <div class="project-card">
 <div class="project-content">
 <h1>✈️</h1>
@@ -319,7 +313,6 @@ insights and scheduling optimization.
 </div>
 </div>
 
-<!-- Library Database -->
 <div class="project-card">
 <div class="project-content">
 <h1>📚</h1>
@@ -338,7 +331,6 @@ and advanced SQL queries using real sample data.
 </div>
 </section>
 
-<!-- EXPERIENCE -->
 <section id="experience" class="reveal">
 <h2 class="section-title">Experience</h2>
 <div class="timeline">
@@ -370,7 +362,6 @@ and advanced SQL queries using real sample data.
 </div>
 </section>
 
-<!-- CERTIFICATES -->
 <section id="certifications" class="reveal">
 <h2 class="section-title">Certificates</h2>
 <div class="projects-grid">
@@ -455,7 +446,6 @@ and advanced SQL queries using real sample data.
 </div>
 </section>
 
-<!-- CONTACT (تحديث مسار ma-logo-space.png) -->
 <section id="contact" class="reveal">
 <h2 class="section-title">Contact</h2>
 <div class="contact-grid">
@@ -493,7 +483,6 @@ and advanced SQL queries using real sample data.
 </div>
 </section>
 
-<!-- FOOTER (تحديث مسار ma-logo-space.png) -->
 <footer>
 <img src="images/ma-logo-space.png" alt="Madyan Alammari Logo" />
 <div>© 2026 Madyan Alammari — AI & Data Portfolio</div>
