@@ -30,18 +30,97 @@ body::before{content:'';position:fixed;inset:0;background-image:url("https://www
 ::-webkit-scrollbar{width:6px;}
 ::-webkit-scrollbar-thumb{background:linear-gradient(var(--pink),var(--cyan));border-radius:10px;}
 
-/* Preloader Animation Styles */
-.loader{position:fixed;inset:0;background:#050816;display:flex;align-items:center;justify-content:center;flex-direction:column;z-index:99999;transition:1s;}
-.loader.hide{opacity:0;visibility:hidden;}
-.loader-img {width:200px;height:auto;margin-bottom:25px;animation:floating-pulse 3s ease-in-out infinite;}
-@keyframes floating-pulse{
-  0%{transform:translateY(0) scale(1) rotate(0deg);}
-  50%{transform:translateY(-12px) scale(1.05) rotate(2deg);}
-  100%{transform:translateY(0) scale(1) rotate(0deg);}
+/* === Enhanced Cinematic Preloader Styles === */
+.loader{
+  position:fixed;
+  inset:0;
+  background:#050816;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  z-index:99999;
+  transition: all 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+  opacity: 1;
+  visibility: visible;
 }
-.bar{width:220px;height:6px;background:#111;overflow:hidden;border-radius:10px;}
-.bar span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--pink),var(--cyan),var(--amber));animation:load 2s linear forwards;}
-@keyframes load{100%{width:100%;}}
+/* Smooth Zoom-out exit effect for the whole loader */
+.loader.hide{
+  opacity:0;
+  visibility:hidden;
+  transform: scale(1.05);
+}
+
+/* Container to center and give a futuristic layout */
+.loader-content-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* Hologram glow behind the logo */
+.loader-glow {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(59,130,246,0.4) 0%, rgba(139,92,246,0.1) 60%, transparent 100%);
+  filter: blur(25px);
+  top: 15px;
+  z-index: 1;
+  animation: loaderGlowPulse 2.5s ease-in-out infinite alternate;
+}
+@keyframes loaderGlowPulse {
+  0% { transform: scale(0.9); opacity: 0.5; }
+  100% { transform: scale(1.2); opacity: 0.9; filter: blur(35px); }
+}
+
+/* Smooth kinetic reveal animation for the Logo */
+.loader-img {
+  width:160px;
+  height:auto;
+  margin-bottom:35px;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  animation: logoEntrance 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards, floating-pulse 4s ease-in-out infinite 1.2s;
+}
+@keyframes logoEntrance {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@keyframes floating-pulse{
+  0%{transform:translateY(0) scale(1);}
+  50%{transform:translateY(-8px) scale(1.02);}
+  100%{transform:translateY(0) scale(1);}
+}
+
+/* Premium, sleek progress bar styling */
+.bar{
+  width:180px;
+  height:3px;
+  background: rgba(255, 255, 255, 0.05);
+  overflow:hidden;
+  border-radius:10px;
+  position: relative;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+.bar span{
+  display:block;
+  height:100%;
+  width:0;
+  background: linear-gradient(90deg, var(--pink), var(--cyan), var(--amber));
+  box-shadow: 0 0 10px var(--cyan), 0 0 5px var(--pink);
+  animation: load 2.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+@keyframes load{
+  0% { width: 0%; }
+  30% { width: 40%; }
+  60% { width: 65%; }
+  100% { width: 100%; }
+}
 
 /* Custom Cursor Styles */
 .cursor{width:10px;height:10px;background:var(--cyan);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
@@ -138,11 +217,10 @@ section{padding:120px 8%;}
 .contact-card .arrow{display:inline-block;margin-left:8px;color:var(--cyan);transition:.2s;}
 .contact-card:hover .arrow{transform:translateX(5px);}
 
-/* Re-engineered Pulsing Ring Container for Contact Avatar */
 .avatar-wrap{position:relative;display:flex;align-items:center;justify-content:center;width:100%;height:350px;}
 .hero-logo-large{width:240px;height:240px;object-fit:contain;z-index:2;filter:drop-shadow(0 0 25px rgba(59,130,246,0.25));}
 
-/* Pulsing Outer Rings (Scaling / Zoom Effect) */
+/* Pulsing Outer Rings around Contact Logo */
 .avatar-wrap::before, .avatar-wrap::after {
   content: '';
   position: absolute;
@@ -203,10 +281,13 @@ nav ul{display:none;}
 </head>
 <body>
 
-<!-- Preloader Section -->
+<!-- === Enhanced Preloader HTML Structure === -->
 <div class="loader">
-<img src="images/ma-logo-space.png" alt="Madyan Logo" class="loader-img" />
-<div class="bar"><span></span></div>
+  <div class="loader-content-inner">
+    <div class="loader-glow"></div>
+    <img src="images/ma-logo-space.png" alt="Madyan Logo" class="loader-img" />
+    <div class="bar"><span></span></div>
+  </div>
 </div>
 
 <canvas id="bg"></canvas>
@@ -540,7 +621,6 @@ and advanced SQL queries using real sample data.
 </a>
 
 </div>
-<!-- Dynamic Container Wrapper with the requested zoom/pulse effect around the logo -->
 <div class="avatar-wrap">
 <img src="images/ma-logo-space.png" alt="Madyan Alammari" class="hero-logo-large" />
 </div>
@@ -554,9 +634,12 @@ and advanced SQL queries using real sample data.
 </footer>
 
 <script>
-/* JavaScript Logic for Preloader hiding */
+/* Enhanced JavaScript Preloader Hiding Strategy */
 window.onload=()=>{
-  setTimeout(()=>{document.querySelector('.loader').classList.add('hide');},2200);
+  // Allows the premium CSS loading animation to complete smoothly before sliding out
+  setTimeout(()=>{
+    document.querySelector('.loader').classList.add('hide');
+  }, 2300);
 };
 
 /* Custom Interactive Cursor Follower Logic */
