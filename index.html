@@ -33,7 +33,7 @@
 }
 
 /* ============================================================
-   LIGHT MODE VARIABLES — Applied when html has class "light"
+   LIGHT MODE VARIABLES
    ============================================================ */
 html.light{
 --bg:#f0f4ff;
@@ -56,17 +56,14 @@ html.light{
 html{scroll-behavior:smooth;}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;cursor:none;transition:background .4s,color .4s;}
 canvas{position:fixed;inset:0;z-index:-1;}
-
-/* Light mode — hide particle canvas (too dark on light bg) */
 html.light canvas{opacity:.15;}
 html.light body::before{opacity:.015;}
-
 body::before{content:'';position:fixed;inset:0;background-image:url("https://www.transparenttextures.com/patterns/asfalt-light.png");opacity:.03;pointer-events:none;}
 ::-webkit-scrollbar{width:6px;}
 ::-webkit-scrollbar-thumb{background:linear-gradient(var(--pink),var(--cyan));border-radius:10px;}
 
 /* ============================================================
-   SCROLL PROGRESS BAR — Thin gradient line at top of page
+   SCROLL PROGRESS BAR
    ============================================================ */
 .progress-bar{
   position:fixed;top:0;left:0;width:0%;height:3px;
@@ -133,53 +130,26 @@ nav{
 .logo img{width:52px;height:52px;object-fit:contain;}
 .logo .brand-name{position:relative;display:inline-block;padding-right:12px;}
 .logo .brand-name::after{content:'.';color:var(--cyan);position:absolute;right:0;bottom:0;line-height:0.8;}
-
 nav ul{display:flex;gap:6px;list-style:none;align-items:center;}
-nav ul a{
-  color:var(--muted);text-decoration:none;font-size:.88rem;transition:.3s;
-  padding:7px 13px;border-radius:10px;
-}
+nav ul a{color:var(--muted);text-decoration:none;font-size:.88rem;transition:.3s;padding:7px 13px;border-radius:10px;}
 nav ul a:hover{color:var(--text);background:rgba(255,255,255,.06);}
 html.light nav ul a:hover{background:rgba(0,0,0,.05);}
-
-/* Active nav link */
-nav ul a.active{
-  color:var(--text);
-  background:linear-gradient(90deg,rgba(139,92,246,.2),rgba(59,130,246,.2));
-  border:1px solid rgba(139,92,246,.3);
-}
-html.light nav ul a.active{
-  background:linear-gradient(90deg,rgba(139,92,246,.12),rgba(59,130,246,.12));
-}
+nav ul a.active{color:var(--text);background:linear-gradient(90deg,rgba(139,92,246,.2),rgba(59,130,246,.2));border:1px solid rgba(139,92,246,.3);}
+html.light nav ul a.active{background:linear-gradient(90deg,rgba(139,92,246,.12),rgba(59,130,246,.12));}
 
 /* ============================================================
-   DARK / LIGHT MODE TOGGLE BUTTON
+   DARK / LIGHT MODE TOGGLE
    ============================================================ */
-.theme-toggle{
-  width:44px;height:24px;border-radius:999px;
-  background:rgba(255,255,255,.1);border:1px solid var(--border);
-  position:relative;cursor:pointer;transition:.3s;flex-shrink:0;
-  display:flex;align-items:center;padding:3px;
-}
+.theme-toggle{width:44px;height:24px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid var(--border);position:relative;cursor:pointer;transition:.3s;flex-shrink:0;display:flex;align-items:center;padding:3px;}
 html.light .theme-toggle{background:rgba(0,0,0,.08);}
-.theme-toggle-knob{
-  width:18px;height:18px;border-radius:50%;
-  background:linear-gradient(135deg,var(--pink),var(--cyan));
-  transition:.3s cubic-bezier(0.34,1.56,0.64,1);
-  display:flex;align-items:center;justify-content:center;font-size:10px;
-}
+.theme-toggle-knob{width:18px;height:18px;border-radius:50%;background:linear-gradient(135deg,var(--pink),var(--cyan));transition:.3s cubic-bezier(0.34,1.56,0.64,1);display:flex;align-items:center;justify-content:center;font-size:10px;}
 html.light .theme-toggle-knob{transform:translateX(20px);}
 .nav-controls{display:flex;align-items:center;gap:12px;}
 
 /* ============================================================
-   HAMBURGER MENU — Mobile only
+   HAMBURGER MENU
    ============================================================ */
-.hamburger{
-  display:none;flex-direction:column;justify-content:center;gap:5px;
-  width:38px;height:38px;background:rgba(255,255,255,.06);
-  border:1px solid var(--border);border-radius:10px;
-  cursor:pointer;padding:8px;
-}
+.hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:38px;height:38px;background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:10px;cursor:pointer;padding:8px;}
 .hamburger span{display:block;height:2px;background:var(--text);border-radius:2px;transition:.3s;transform-origin:center;}
 .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
 .hamburger.open span:nth-child(2){opacity:0;}
@@ -188,22 +158,11 @@ html.light .theme-toggle-knob{transform:translateX(20px);}
 /* ============================================================
    MOBILE DROPDOWN MENU
    ============================================================ */
-.mobile-menu{
-  display:none;position:fixed;top:90px;left:4%;width:92%;
-  background:rgba(13,16,37,.97);backdrop-filter:blur(30px);
-  border:1px solid var(--border);border-radius:18px;
-  padding:20px;z-index:998;flex-direction:column;gap:6px;
-  transition:background .4s;
-}
+.mobile-menu{display:none;position:fixed;top:90px;left:4%;width:92%;background:rgba(13,16,37,.97);backdrop-filter:blur(30px);border:1px solid var(--border);border-radius:18px;padding:20px;z-index:998;flex-direction:column;gap:6px;transition:background .4s;}
 html.light .mobile-menu{background:rgba(240,244,255,.97);}
 .mobile-menu.open{display:flex;}
-.mobile-menu a{
-  color:var(--muted);text-decoration:none;font-size:1rem;
-  padding:14px 18px;border-radius:12px;transition:.2s;border:1px solid transparent;
-}
-.mobile-menu a:hover,.mobile-menu a.active{
-  color:var(--text);background:rgba(255,255,255,.06);border-color:rgba(139,92,246,.3);
-}
+.mobile-menu a{color:var(--muted);text-decoration:none;font-size:1rem;padding:14px 18px;border-radius:12px;transition:.2s;border:1px solid transparent;}
+.mobile-menu a:hover,.mobile-menu a.active{color:var(--text);background:rgba(255,255,255,.06);border-color:rgba(139,92,246,.3);}
 html.light .mobile-menu a:hover,html.light .mobile-menu a.active{background:rgba(0,0,0,.05);}
 
 /* ============================================================
@@ -221,42 +180,20 @@ html.light .mobile-menu a:hover,html.light .mobile-menu a.active{background:rgba
 .primary{background:linear-gradient(90deg,var(--pink),var(--cyan));color:#fff;}
 .secondary{background:var(--skill-bg);color:var(--text);border:1px solid var(--border);}
 .btn:hover{transform:translateY(-5px);}
-
-/* Download CV button */
-.btn-cv{
-  background:rgba(16,185,129,.12);color:#10b981;border:1px solid rgba(16,185,129,.35);
-  padding:14px 24px;border-radius:14px;font-weight:700;cursor:pointer;text-decoration:none;
-  transition:.35s;display:inline-flex;align-items:center;gap:8px;font-size:.95rem;
-}
+.btn-cv{background:rgba(16,185,129,.12);color:#10b981;border:1px solid rgba(16,185,129,.35);padding:14px 24px;border-radius:14px;font-weight:700;cursor:pointer;text-decoration:none;transition:.35s;display:inline-flex;align-items:center;gap:8px;font-size:.95rem;}
 .btn-cv:hover{background:rgba(16,185,129,.25);transform:translateY(-5px);box-shadow:0 8px 25px rgba(16,185,129,.2);}
-
-/* LinkedIn button */
-.btn-linkedin{
-  background:rgba(10,102,194,.12);color:#0A66C2;border:1px solid rgba(10,102,194,.35);
-  display:inline-flex;align-items:center;gap:8px;
-}
+.btn-linkedin{background:rgba(10,102,194,.12);color:#0A66C2;border:1px solid rgba(10,102,194,.35);display:inline-flex;align-items:center;gap:8px;}
 .btn-linkedin:hover{background:#0A66C2;color:#fff;transform:translateY(-5px);}
 
 /* ============================================================
    HERO 3D CARD
    ============================================================ */
-.card3d{
-  position:relative;width:360px;height:450px;margin:auto;
-  background:var(--card-bg);border:1px solid var(--border);border-radius:30px;
-  backdrop-filter:blur(20px);display:flex;align-items:center;justify-content:center;
-  overflow:hidden;animation:float 5s ease-in-out infinite;transition:background .4s,border .4s;
-}
+.card3d{position:relative;width:360px;height:450px;margin:auto;background:var(--card-bg);border:1px solid var(--border);border-radius:30px;backdrop-filter:blur(20px);display:flex;align-items:center;justify-content:center;overflow:hidden;animation:float 5s ease-in-out infinite;transition:background .4s,border .4s;}
 @keyframes float{50%{transform:translateY(-20px);}}
 .glow{position:absolute;width:250px;height:250px;top:50%;left:50%;transform:translate(-50%,-50%);background:radial-gradient(circle,var(--pink),transparent 70%);filter:blur(80px);opacity:.35;z-index:1;}
-.ring-content-wrapper{
-  width:320px;height:320px;border:2px dashed rgba(255,255,255,.15);border-radius:50%;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  position:relative;z-index:2;padding:20px;background:rgba(5,8,22,0.2);
-}
+.ring-content-wrapper{width:320px;height:320px;border:2px dashed rgba(255,255,255,.15);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;z-index:2;padding:20px;background:rgba(5,8,22,0.2);}
 html.light .ring-content-wrapper{background:rgba(255,255,255,0.1);border-color:rgba(0,0,0,.12);}
 .hero-card-img{width:150px;height:150px;object-fit:contain;margin-bottom:5px;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.3));}
-
-/* Typing animation */
 .role{color:var(--muted);font-weight:600;font-size:0.9rem;letter-spacing:0.8px;margin-bottom:15px;text-align:center;min-height:1.4em;}
 .typing-text{color:var(--cyan);}
 .typing-cursor{display:inline-block;width:2px;height:0.9em;background:var(--cyan);margin-left:2px;vertical-align:middle;animation:blink .7s infinite;}
@@ -273,48 +210,21 @@ section{padding:120px 8%;}
 .section-title{font-size:3rem;font-family:'Syne',sans-serif;margin-bottom:60px;color:var(--text);}
 
 /* ============================================================
-   SKILLS SECTION — Pill badges with tooltips
+   SKILLS SECTION
    ============================================================ */
 .skills{display:flex;flex-wrap:wrap;gap:15px;}
-
-/* Wrapper needed for tooltip positioning */
 .skill-wrap{position:relative;display:inline-block;}
-
-.skill{
-  padding:12px 18px;background:var(--skill-bg);border:1px solid var(--skill-border);
-  border-radius:999px;transition:.3s;cursor:default;display:block;color:var(--text);
-}
+.skill{padding:12px 18px;background:var(--skill-bg);border:1px solid var(--skill-border);border-radius:999px;transition:.3s;cursor:default;display:block;color:var(--text);}
 .skill:hover{transform:translateY(-5px);background:linear-gradient(90deg,var(--pink),var(--cyan));color:#fff;border-color:transparent;}
-
-/* ============================================================
-   SKILL TOOLTIP — Shows on hover above each skill badge
-   ============================================================ */
-.skill-tooltip{
-  position:absolute;bottom:calc(100% + 10px);left:50%;transform:translateX(-50%) translateY(4px);
-  background:var(--tooltip-bg);color:var(--tooltip-text);
-  font-size:.78rem;line-height:1.5;padding:10px 14px;border-radius:10px;
-  white-space:nowrap;max-width:220px;white-space:normal;text-align:center;
-  border:1px solid rgba(139,92,246,.25);
-  opacity:0;pointer-events:none;
-  transition:opacity .2s,transform .2s;
-  z-index:100;
-  box-shadow:0 8px 24px rgba(0,0,0,.3);
-}
-/* Tooltip arrow */
-.skill-tooltip::after{
-  content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);
-  border:6px solid transparent;border-top-color:var(--tooltip-bg);
-}
+.skill-tooltip{position:absolute;bottom:calc(100% + 10px);left:50%;transform:translateX(-50%) translateY(4px);background:var(--tooltip-bg);color:var(--tooltip-text);font-size:.78rem;line-height:1.5;padding:10px 14px;border-radius:10px;white-space:nowrap;max-width:220px;white-space:normal;text-align:center;border:1px solid rgba(139,92,246,.25);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:100;box-shadow:0 8px 24px rgba(0,0,0,.3);}
+.skill-tooltip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:var(--tooltip-bg);}
 .skill-wrap:hover .skill-tooltip{opacity:1;transform:translateX(-50%) translateY(0);}
 
 /* ============================================================
    PROJECTS SECTION
    ============================================================ */
 .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:30px;}
-.project-card{
-  background:var(--card-bg);border:1px solid var(--border);border-radius:25px;
-  overflow:hidden;position:relative;transition:.4s;display:flex;flex-direction:column;
-}
+.project-card{background:var(--card-bg);border:1px solid var(--border);border-radius:25px;overflow:hidden;position:relative;transition:.4s;display:flex;flex-direction:column;}
 .project-card::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:4px;background:linear-gradient(90deg,var(--pink),var(--cyan),var(--amber));transition:.6s;}
 .project-card:hover::before{left:100%;}
 .project-card:hover{transform:translateY(-10px);border-color:rgba(99,102,241,0.4);}
@@ -324,180 +234,95 @@ section{padding:120px 8%;}
 .project-content p{color:var(--muted);line-height:1.8;margin-bottom:20px;flex:1;}
 .tags{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px;}
 .tags span{padding:8px 14px;background:var(--skill-bg);border-radius:999px;font-size:.8rem;border:1px solid var(--border);color:var(--text);}
+
 /* ============================================================
-   CERTIFICATE BUTTON STYLE & HOVER EFFECT
-   Matches the exact gradient and lift effect of the skills pills
+   GITHUB LINK BUTTON — Projects
    ============================================================ */
-.github-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 11px 20px;
-  border-radius: 12px;
-  background: var(--skill-bg);
-  border: 1px solid var(--border);
-  color: var(--text);
-  text-decoration: none;
-  font-size: .9rem;
-  font-weight: 600;
-  transition: .3s;
-  width: fit-content;
-  margin-top: auto;
+.github-link{
+  display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:12px;
+  background:var(--skill-bg);border:1px solid var(--border);
+  color:var(--text);text-decoration:none;font-size:.9rem;font-weight:600;
+  transition:.3s;width:fit-content;margin-top:auto;
+}
+.github-link:hover{
+  background:linear-gradient(90deg,var(--pink),var(--cyan));
+  border-color:transparent;transform:translateY(-5px);color:#fff;
+}
+.github-link svg{width:18px;height:18px;fill:currentColor;flex-shrink:0;}
+
+/* ============================================================
+   CERTIFICATIONS — cert-meta badges (separated, no crowding)
+   ============================================================ */
+.cert-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  align-items:center;
+  margin-bottom:16px;
+}
+.cert-badge{
+  display:inline-block;
+  padding:5px 14px;
+  border-radius:999px;
+  font-size:.75rem;
+  font-weight:700;
+  border:1px solid;
+  white-space:nowrap;
+}
+.cert-badge.kaust{background:rgba(54,228,255,.1);border-color:rgba(54,228,255,.3);color:var(--cyan);}
+.cert-badge.kau{background:rgba(255,184,77,.1);border-color:rgba(255,184,77,.3);color:var(--amber);}
+.cert-badge.hours{background:var(--skill-bg);border-color:var(--border);color:var(--muted);}
+.cert-badge.dlai{background:rgba(239,68,68,.1);border-color:rgba(239,68,68,.3);color:#f87171;}
+.cert-badge.michigan{background:rgba(59,130,246,.1);border-color:rgba(59,130,246,.3);color:var(--cyan);}
+
+/* ============================================================
+   CERT LINK BUTTON — View Certificate (fixed hover contrast)
+   ============================================================ */
+.cert-link{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:10px 18px;border-radius:12px;
+  background:var(--skill-bg);border:1px solid var(--border);
+  color:var(--text);text-decoration:none;font-size:.88rem;font-weight:600;
+  transition:.3s;width:fit-content;margin-top:auto;
+}
+.cert-link:hover{
+  background:linear-gradient(90deg,var(--pink),var(--cyan));
+  border-color:transparent;
+  color:#fff;                /* always white on gradient — visible in both modes */
+  transform:translateY(-4px);
+}
+.cert-link svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
+
+/* ============================================================
+   CERT COURSES LIST — Sub-courses inside a specialization card
+   ============================================================ */
+.cert-courses{
+  display:flex;flex-direction:column;gap:6px;
+  margin-bottom:18px;
+}
+.cert-course-item{
+  display:inline-flex;align-items:center;gap:8px;
+  text-decoration:none;
+  color:var(--muted);
+  font-size:.85rem;
+  padding:6px 10px;
+  border-radius:8px;
+  border:1px solid transparent;
+  transition:.25s;
+}
+.cert-course-item:hover{
+  color:var(--text);
+  background:rgba(59,130,246,.08);
+  border-color:rgba(59,130,246,.2);
+  transform:translateX(4px);
+}
+.cert-course-item svg{
+  width:13px;height:13px;
+  fill:none;stroke:var(--cyan);stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round;
+  flex-shrink:0;opacity:.7;
 }
 
-.github-link:hover {
-  /* Match the skills pill hover gradient and animation */
-  background: linear-gradient(90deg, var(--pink), var(--cyan));
-  border-color: transparent;
-  transform: translateY(-5px); /* Changed from -3px to -5px to match skills */
-  color: #fff;
-}
-
-.github-link svg {
-  width: 18px;
-  height: 18px;
-  fill: currentColor;
-  flex-shrink: 0;
-}
-
-/* Light mode override to maintain consistent hover colors */
-html.light .github-link:hover {
-  background: linear-gradient(90deg, var(--pink), var(--cyan));
-  color: #fff;
-}
-<!-- ============================================================
-     CERTIFICATIONS SECTION
-     ============================================================ -->
-<section id="certifications" class="reveal">
-  <h2 class="section-title">Certificates</h2>
-  <div class="projects-grid">
-
-    <div class="project-card">
-      <div class="project-content">
-        <h1>📐</h1>
-        <div class="cert-meta">
-          <span class="cert-badge kaust">Coursera · Serrano Academy</span>
-          <span class="cert-badge hours">3 Courses</span>
-          <span class="cert-badge hours">Dec 2025</span>
-        </div>
-        <h3>Mathematics for Machine Learning & Data Science</h3>
-        <p>Specialization covering the core mathematical foundations required for ML and Data Science. Completed all 3 courses with verified certificate.</p>
-        <div class="tags">
-          <span>Linear Algebra</span>
-          <span>Calculus for ML</span>
-          <span>Probability & Statistics</span>
-        </div>
-        <a href="https://coursera.org/share/1d6728281aa8323ff35fa5a9e47154ca" target="_blank" class="github-link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          View Certificate
-        </a>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-content">
-        <h1>🐍</h1>
-        <div class="cert-meta">
-          <span class="cert-badge kaust">Coursera · University of Michigan</span>
-          <span class="cert-badge hours">5 Courses</span>
-          <span class="cert-badge hours">2024</span>
-        </div>
-        <h3>Python for Everybody Specialization</h3>
-        <p>University of Michigan specialization covering Python programming, data structures, web data access, databases, and a capstone project. Completed all 5 courses.</p>
-        <div class="tags">
-          <span>Python Basics</span>
-          <span>Data Structures</span>
-          <span>Web Data & APIs</span>
-          <span>Databases & SQL</span>
-          <span>Capstone Project</span>
-        </div>
-        <a href="https://coursera.org/share/66a5686aac1b290f120c7439a723aee1" target="_blank" class="github-link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          View Certificate
-        </a>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-content">
-        <h1>🧠</h1>
-        <div class="cert-meta">
-          <span class="cert-badge kaust">KAUST Academy</span>
-          <span class="cert-badge hours">40 Hours</span>
-          <span class="cert-badge hours">Feb 2026</span>
-        </div>
-        <h3>Advanced AI — CNNs & Computer Vision</h3>
-        <p>Advanced deep learning training focused on CNN architectures, image preprocessing, convolutional layers, pooling, and AI model development for computer vision tasks.</p>
-        <div class="tags">
-          <span>Deep Learning</span><span>CNNs</span><span>Computer Vision</span><span>Neural Networks</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-content">
-        <h1>🤖</h1>
-        <div class="cert-meta">
-          <span class="cert-badge kaust">KAUST Academy</span>
-          <span class="cert-badge hours">40 Hours</span>
-          <span class="cert-badge hours">Jan 2026</span>
-        </div>
-        <h3>Introductory AI — NTDP Program</h3>
-        <p>National Talent Development Program covering machine learning fundamentals, AI concepts, predictive systems, and intelligent technologies through structured coursework.</p>
-        <div class="tags">
-          <span>Artificial Intelligence</span><span>Machine Learning</span><span>NTDP</span><span>AI Foundations</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-content">
-        <h1>🏆</h1>
-        <div class="cert-meta">
-          <span class="cert-badge kau">King Abdulaziz University</span>
-          <span class="cert-badge hours">Jan 2026</span>
-        </div>
-        <h3>Academic Track — Artificial Intelligence</h3>
-        <p>Completed the AI academic track at KAU covering core AI principles, machine learning models, data analysis methods, and applied AI problem-solving techniques.</p>
-        <div class="tags">
-          <span>AI Track</span><span>Machine Learning</span><span>KAU</span><span>Applied AI</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-content">
-        <h1>💻</h1>
-        <div class="cert-meta">
-          <span class="cert-badge kau">King Abdulaziz University</span>
-          <span class="cert-badge hours">Jan 2026</span>
-        </div>
-        <h3>Academic Track — Advanced Programming</h3>
-        <p>Advanced programming track at KAU covering software engineering principles, algorithms, data structures, and problem-solving using modern programming paradigms.</p>
-        <div class="tags">
-          <span>Advanced Programming</span><span>Algorithms</span><span>Data Structures</span><span>KAU</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-content">
-        <h1>⭐</h1>
-        <div class="cert-meta">
-          <span class="cert-badge kau">King Abdulaziz University</span>
-          <span class="cert-badge hours">2021 – 2026</span>
-        </div>
-        <h3>Academic Excellence — 5 Consecutive Years</h3>
-        <p>Awarded the Certificate of Excellence for maintaining a GPA of 4.9/5 across 5 consecutive academic years (2021–2026) at the Faculty of Computing and Information Technology.</p>
-        <div class="tags">
-          <span>GPA 4.9/5</span><span>5 Years</span><span>Academic Excellence</span><span>FCIT</span>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-   
 /* ============================================================
    EXPERIENCE TIMELINE
    ============================================================ */
@@ -603,9 +428,7 @@ footer img{width:65px;height:65px;object-fit:cover;border-radius:50%;border:1px 
     <li><a href="#certifications">Certificates</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <!-- Nav controls: theme toggle + hamburger -->
   <div class="nav-controls">
-    <!-- Dark/Light mode toggle -->
     <div class="theme-toggle" id="themeToggle" title="Toggle light/dark mode">
       <div class="theme-toggle-knob" id="themeKnob">
         <span id="themeIcon">🌙</span>
@@ -683,184 +506,60 @@ footer img{width:65px;height:65px;object-fit:cover;border-radius:50%;border:1px 
 </section>
 
 <!-- ============================================================
-     CORE SKILLS SECTION — Each skill has a tooltip
+     CORE SKILLS SECTION
      ============================================================ -->
 <section id="skills" class="reveal">
   <h2 class="section-title">Skills</h2>
   <div class="skills">
-
-    <div class="skill-wrap">
-      <span class="skill">Leadership</span>
-      <div class="skill-tooltip">Led teams and capstone projects, coordinating tasks and guiding deliverables to completion.</div>
-    </div>
-    <div class="skill-wrap">
-      <span class="skill">Teamwork</span>
-      <div class="skill-tooltip">Collaborated across cross-functional teams in academic and professional environments.</div>
-    </div>
-    <div class="skill-wrap">
-      <span class="skill">Communication</span>
-      <div class="skill-tooltip">Delivered technical training to 900+ employees and simplified complex topics for diverse audiences.</div>
-    </div>
-    <div class="skill-wrap">
-      <span class="skill">Problem Solving</span>
-      <div class="skill-tooltip">Identified root causes and designed data-driven solutions for real business challenges.</div>
-    </div>
-    <div class="skill-wrap">
-      <span class="skill">Critical Thinking</span>
-      <div class="skill-tooltip">Evaluated models, datasets, and results with an analytical and questioning mindset.</div>
-    </div>
-    <div class="skill-wrap">
-      <span class="skill">Analytical Thinking</span>
-      <div class="skill-tooltip">Interpreted large datasets to surface trends, patterns, and actionable insights.</div>
-    </div>
-    <div class="skill-wrap">
-      <span class="skill">Social Intelligence</span>
-      <div class="skill-tooltip">Adapted communication style and approach to connect effectively with different stakeholders.</div>
-    </div>
-    <div class="skill-wrap">
-      <span class="skill">Time Management</span>
-      <div class="skill-tooltip">Balanced multiple internships, freelance work, and academic projects simultaneously.</div>
-    </div>
-    <div class="skill-wrap">
-      <span class="skill">Data Analysis</span>
-      <div class="skill-tooltip">Extracted insights from structured and unstructured data using Python, SQL, and Power BI.</div>
-    </div>
-    <div class="skill-wrap">
-      <span class="skill">Data Cleaning</span>
-      <div class="skill-tooltip">Handled missing values, outliers, duplicates, and inconsistencies across multi-source datasets.</div>
-    </div>
-    <div class="skill-wrap">
-      <span class="skill">Data Visualization</span>
-      <div class="skill-tooltip">Built interactive dashboards and visual reports using Power BI, Matplotlib, and Streamlit.</div>
-    </div>
-    <div class="skill-wrap">
-      <span class="skill">Feature Engineering</span>
-      <div class="skill-tooltip">Created and transformed features to improve ML model performance and interpretability.</div>
-    </div>
-    <div class="skill-wrap">
-      <span class="skill">Predictive Analytics</span>
-      <div class="skill-tooltip">Built models to forecast outcomes such as student performance and flight delays.</div>
-    </div>
-    <div class="skill-wrap">
-      <span class="skill">Business Intelligence</span>
-      <div class="skill-tooltip">Translated raw data into KPIs and strategic reports for decision-makers.</div>
-    </div>
-    <div class="skill-wrap">
-      <span class="skill">EDA</span>
-      <div class="skill-tooltip">Exploratory Data Analysis — deep-dive statistical exploration before modeling or reporting.</div>
-    </div>
-
+    <div class="skill-wrap"><span class="skill">Leadership</span><div class="skill-tooltip">Led teams and capstone projects, coordinating tasks and guiding deliverables to completion.</div></div>
+    <div class="skill-wrap"><span class="skill">Teamwork</span><div class="skill-tooltip">Collaborated across cross-functional teams in academic and professional environments.</div></div>
+    <div class="skill-wrap"><span class="skill">Communication</span><div class="skill-tooltip">Delivered technical training to 900+ employees and simplified complex topics for diverse audiences.</div></div>
+    <div class="skill-wrap"><span class="skill">Problem Solving</span><div class="skill-tooltip">Identified root causes and designed data-driven solutions for real business challenges.</div></div>
+    <div class="skill-wrap"><span class="skill">Critical Thinking</span><div class="skill-tooltip">Evaluated models, datasets, and results with an analytical and questioning mindset.</div></div>
+    <div class="skill-wrap"><span class="skill">Analytical Thinking</span><div class="skill-tooltip">Interpreted large datasets to surface trends, patterns, and actionable insights.</div></div>
+    <div class="skill-wrap"><span class="skill">Social Intelligence</span><div class="skill-tooltip">Adapted communication style and approach to connect effectively with different stakeholders.</div></div>
+    <div class="skill-wrap"><span class="skill">Time Management</span><div class="skill-tooltip">Balanced multiple internships, freelance work, and academic projects simultaneously.</div></div>
+    <div class="skill-wrap"><span class="skill">Data Analysis</span><div class="skill-tooltip">Extracted insights from structured and unstructured data using Python, SQL, and Power BI.</div></div>
+    <div class="skill-wrap"><span class="skill">Data Cleaning</span><div class="skill-tooltip">Handled missing values, outliers, duplicates, and inconsistencies across multi-source datasets.</div></div>
+    <div class="skill-wrap"><span class="skill">Data Visualization</span><div class="skill-tooltip">Built interactive dashboards and visual reports using Power BI, Matplotlib, and Streamlit.</div></div>
+    <div class="skill-wrap"><span class="skill">Feature Engineering</span><div class="skill-tooltip">Created and transformed features to improve ML model performance and interpretability.</div></div>
+    <div class="skill-wrap"><span class="skill">Predictive Analytics</span><div class="skill-tooltip">Built models to forecast outcomes such as student performance and flight delays.</div></div>
+    <div class="skill-wrap"><span class="skill">Business Intelligence</span><div class="skill-tooltip">Translated raw data into KPIs and strategic reports for decision-makers.</div></div>
+    <div class="skill-wrap"><span class="skill">EDA</span><div class="skill-tooltip">Exploratory Data Analysis — deep-dive statistical exploration before modeling or reporting.</div></div>
   </div>
 </section>
 
 <!-- ============================================================
-     TECH STACK SECTION — Each tech has a tooltip
+     TECH STACK SECTION
      ============================================================ -->
 <section id="tech-stack" class="reveal">
   <h2 class="section-title">Software & Technologies</h2>
   <div class="skills">
-
-    <div class="skill-wrap">
-      <span class="skill">Python</span>
-      <div class="skill-tooltip">Primary language for data analysis, ML modeling, automation, and web apps.</div>
-    </div>
-    <div class="skill-wrap">
-      <span class="skill">SQL</span>
-      <div class="skill-tooltip">Queried, joined, and aggregated relational databases for reporting and analysis.</div>
-    </div>
-    <div class="skill-wrap">
-      <span class="skill">Java</span>
-      <div class="skill-tooltip">Object-oriented programming for academic projects and algorithm implementations.</div>
-    </div>
-    <div class="skill-wrap">
-      <span class="skill">Pandas</span>
-      <div class="skill-tooltip">Core library for data manipulation, cleaning, and transformation in Python.</div>
-    </div>
-    <div class="skill-wrap">
-      <span class="skill">NumPy</span>
-      <div class="skill-tooltip">Numerical computing library used for array operations and mathematical functions.</div>
-    </div>
-    <div class="skill-wrap">
-      <span class="skill">Power BI</span>
-      <div class="skill-tooltip">Built interactive dashboards with drill-downs, KPIs, and live data connections.</div>
-    </div>
-    <div class="skill-wrap">
-      <span class="skill">Excel (Advanced)</span>
-      <div class="skill-tooltip">Used pivot tables, VLOOKUP, conditional formatting, and data modeling features.</div>
-    </div>
-    <div class="skill-wrap">
-      <span class="skill">SQL Server</span>
-      <div class="skill-tooltip">Managed relational databases, stored procedures, and complex query optimization.</div>
-    </div>
-    <div class="skill-wrap">
-      <span class="skill">Google Colab</span>
-      <div class="skill-tooltip">Cloud-based Jupyter environment for running ML experiments with GPU support.</div>
-    </div>
-    <div class="skill-wrap">
-      <span class="skill">Scikit-learn</span>
-      <div class="skill-tooltip">Python ML library used for classification, regression, clustering, and model evaluation.</div>
-    </div>
-    <div class="skill-wrap">
-      <span class="skill">Machine Learning</span>
-      <div class="skill-tooltip">Trained and evaluated supervised/unsupervised models on real-world datasets.</div>
-    </div>
-    <div class="skill-wrap">
-      <span class="skill">Deep Learning</span>
-      <div class="skill-tooltip">Built neural networks for pattern recognition and computer vision tasks.</div>
-    </div>
-    <div class="skill-wrap">
-      <span class="skill">Random Forest</span>
-      <div class="skill-tooltip">Ensemble model used in student outcome prediction — achieved 85% accuracy.</div>
-    </div>
-    <div class="skill-wrap">
-      <span class="skill">Logistic Regression</span>
-      <div class="skill-tooltip">Binary/multi-class classification baseline model with strong interpretability.</div>
-    </div>
-    <div class="skill-wrap">
-      <span class="skill">SMOTE</span>
-      <div class="skill-tooltip">Synthetic Minority Oversampling Technique — handles imbalanced class distributions in ML.</div>
-    </div>
-    <div class="skill-wrap">
-      <span class="skill">GridSearchCV</span>
-      <div class="skill-tooltip">Hyperparameter tuning via exhaustive cross-validated grid search for optimal model config.</div>
-    </div>
-    <div class="skill-wrap">
-      <span class="skill">CNN</span>
-      <div class="skill-tooltip">Convolutional Neural Networks — used for image classification and computer vision tasks.</div>
-    </div>
-    <div class="skill-wrap">
-      <span class="skill">Computer Vision</span>
-      <div class="skill-tooltip">Processed and analyzed visual data using OpenCV and deep learning techniques.</div>
-    </div>
-    <div class="skill-wrap">
-      <span class="skill">OCR / Tesseract</span>
-      <div class="skill-tooltip">Optical Character Recognition — extracted text from scanned invoices and documents.</div>
-    </div>
-    <div class="skill-wrap">
-      <span class="skill">OpenCV</span>
-      <div class="skill-tooltip">Image preprocessing library used for invoice detection and computer vision pipelines.</div>
-    </div>
-    <div class="skill-wrap">
-      <span class="skill">pdfplumber</span>
-      <div class="skill-tooltip">Extracted structured data from PDF invoices for automated financial auditing.</div>
-    </div>
-    <div class="skill-wrap">
-      <span class="skill">Streamlit</span>
-      <div class="skill-tooltip">Deployed ML models as interactive web apps — used in student outcome prediction.</div>
-    </div>
-    <div class="skill-wrap">
-      <span class="skill">Supabase</span>
-      <div class="skill-tooltip">Open-source backend with auth and database — used in the AuditAI web app.</div>
-    </div>
-    <div class="skill-wrap">
-      <span class="skill">GitHub</span>
-      <div class="skill-tooltip">Version control and project hosting for all portfolio and collaborative work.</div>
-    </div>
-    <div class="skill-wrap">
-      <span class="skill">VS Code</span>
-      <div class="skill-tooltip">Primary IDE for Python, web development, and data science workflows.</div>
-    </div>
-
+    <div class="skill-wrap"><span class="skill">Python</span><div class="skill-tooltip">Primary language for data analysis, ML modeling, automation, and web apps.</div></div>
+    <div class="skill-wrap"><span class="skill">SQL</span><div class="skill-tooltip">Queried, joined, and aggregated relational databases for reporting and analysis.</div></div>
+    <div class="skill-wrap"><span class="skill">Java</span><div class="skill-tooltip">Object-oriented programming for academic projects and algorithm implementations.</div></div>
+    <div class="skill-wrap"><span class="skill">Pandas</span><div class="skill-tooltip">Core library for data manipulation, cleaning, and transformation in Python.</div></div>
+    <div class="skill-wrap"><span class="skill">NumPy</span><div class="skill-tooltip">Numerical computing library used for array operations and mathematical functions.</div></div>
+    <div class="skill-wrap"><span class="skill">Power BI</span><div class="skill-tooltip">Built interactive dashboards with drill-downs, KPIs, and live data connections.</div></div>
+    <div class="skill-wrap"><span class="skill">Excel (Advanced)</span><div class="skill-tooltip">Used pivot tables, VLOOKUP, conditional formatting, and data modeling features.</div></div>
+    <div class="skill-wrap"><span class="skill">SQL Server</span><div class="skill-tooltip">Managed relational databases, stored procedures, and complex query optimization.</div></div>
+    <div class="skill-wrap"><span class="skill">Google Colab</span><div class="skill-tooltip">Cloud-based Jupyter environment for running ML experiments with GPU support.</div></div>
+    <div class="skill-wrap"><span class="skill">Scikit-learn</span><div class="skill-tooltip">Python ML library used for classification, regression, clustering, and model evaluation.</div></div>
+    <div class="skill-wrap"><span class="skill">Machine Learning</span><div class="skill-tooltip">Trained and evaluated supervised/unsupervised models on real-world datasets.</div></div>
+    <div class="skill-wrap"><span class="skill">Deep Learning</span><div class="skill-tooltip">Built neural networks for pattern recognition and computer vision tasks.</div></div>
+    <div class="skill-wrap"><span class="skill">Random Forest</span><div class="skill-tooltip">Ensemble model used in student outcome prediction — achieved 85% accuracy.</div></div>
+    <div class="skill-wrap"><span class="skill">Logistic Regression</span><div class="skill-tooltip">Binary/multi-class classification baseline model with strong interpretability.</div></div>
+    <div class="skill-wrap"><span class="skill">SMOTE</span><div class="skill-tooltip">Synthetic Minority Oversampling Technique — handles imbalanced class distributions in ML.</div></div>
+    <div class="skill-wrap"><span class="skill">GridSearchCV</span><div class="skill-tooltip">Hyperparameter tuning via exhaustive cross-validated grid search for optimal model config.</div></div>
+    <div class="skill-wrap"><span class="skill">CNN</span><div class="skill-tooltip">Convolutional Neural Networks — used for image classification and computer vision tasks.</div></div>
+    <div class="skill-wrap"><span class="skill">Computer Vision</span><div class="skill-tooltip">Processed and analyzed visual data using OpenCV and deep learning techniques.</div></div>
+    <div class="skill-wrap"><span class="skill">OCR / Tesseract</span><div class="skill-tooltip">Optical Character Recognition — extracted text from scanned invoices and documents.</div></div>
+    <div class="skill-wrap"><span class="skill">OpenCV</span><div class="skill-tooltip">Image preprocessing library used for invoice detection and computer vision pipelines.</div></div>
+    <div class="skill-wrap"><span class="skill">pdfplumber</span><div class="skill-tooltip">Extracted structured data from PDF invoices for automated financial auditing.</div></div>
+    <div class="skill-wrap"><span class="skill">Streamlit</span><div class="skill-tooltip">Deployed ML models as interactive web apps — used in student outcome prediction.</div></div>
+    <div class="skill-wrap"><span class="skill">Supabase</span><div class="skill-tooltip">Open-source backend with auth and database — used in the AuditAI web app.</div></div>
+    <div class="skill-wrap"><span class="skill">GitHub</span><div class="skill-tooltip">Version control and project hosting for all portfolio and collaborative work.</div></div>
+    <div class="skill-wrap"><span class="skill">VS Code</span><div class="skill-tooltip">Primary IDE for Python, web development, and data science workflows.</div></div>
   </div>
 </section>
 
@@ -965,8 +664,8 @@ footer img{width:65px;height:65px;object-fit:cover;border-radius:50%;border:1px 
 <section id="certifications" class="reveal">
   <h2 class="section-title">Certificates</h2>
   <div class="projects-grid">
-    
-    <!-- 1. Advanced AI -->
+
+    <!-- 1. Advanced AI — KAUST -->
     <div class="project-card">
       <div class="project-content">
         <h1>🧠</h1>
@@ -977,10 +676,13 @@ footer img{width:65px;height:65px;object-fit:cover;border-radius:50%;border:1px 
         </div>
         <h3>Advanced AI — CNNs & Computer Vision</h3>
         <p>Advanced deep learning training focused on CNN architectures, image preprocessing, convolutional layers, pooling, and AI model development for computer vision tasks.</p>
-        <div class="tags"><span>Deep Learning</span><span>CNNs</span><span>Computer Vision</span><span>Neural Networks</span></div>
+        <div class="tags">
+          <span>Deep Learning</span><span>CNNs</span><span>Computer Vision</span><span>Neural Networks</span>
+        </div>
       </div>
     </div>
-    <!-- 2. Introductory AI -->
+
+    <!-- 2. Introductory AI — KAUST NTDP -->
     <div class="project-card">
       <div class="project-content">
         <h1>🤖</h1>
@@ -990,50 +692,86 @@ footer img{width:65px;height:65px;object-fit:cover;border-radius:50%;border:1px 
           <span class="cert-badge hours">Jan 2026</span>
         </div>
         <h3>Introductory AI — NTDP Program</h3>
-        <p>National Talent Development Program covering machine learning fundamentals, AI concepts, predictive systems, and intelligent technologies.</p>
-        <div class="tags"><span>Artificial Intelligence</span><span>Machine Learning</span><span>NTDP</span></div>
-      </div>
-    </div>
-
-    <!-- 3. Python for Everybody (New) -->
-    <div class="project-card">
-      <div class="project-content">
-        <h1>🐍</h1>
-        <div class="cert-meta">
-          <span class="cert-badge kaust" style="background:rgba(0, 86, 210, 0.1); border-color:rgba(0, 86, 210, 0.3); color:#3b82f6;">Coursera · U-Michigan</span>
-          <span class="cert-badge hours">5 Courses</span>
-          <span class="cert-badge hours">2024</span>
+        <p>National Talent Development Program covering machine learning fundamentals, AI concepts, predictive systems, and intelligent technologies through structured coursework.</p>
+        <div class="tags">
+          <span>Artificial Intelligence</span><span>Machine Learning</span><span>NTDP</span><span>AI Foundations</span>
         </div>
-        <h3>Python for Everybody Specialization</h3>
-        <p>University of Michigan specialization covering Python programming, data structures, web data access, databases, and a capstone project. Completed all 5 courses.</p>
-        <div class="tags"><span>Python Basics</span><span>Data Structures</span><span>Web Data</span><span>SQL</span></div>
-        <a href="https://coursera.org/share/66a5686aac1b290f120c7439a723aee1" target="_blank" class="github-link" style="display: flex; align-items: center; gap: 8px; margin-top: 15px; color: var(--cyan); text-decoration: none; font-size: 0.85rem; font-weight: 600;">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          View Certificate
-        </a>
       </div>
     </div>
 
-     <!-- 4. Mathematics for ML & DS (New) -->
+    <!-- 3. Math for ML & DS — DeepLearning.AI Specialization -->
     <div class="project-card">
       <div class="project-content">
         <h1>📐</h1>
         <div class="cert-meta">
-          <span class="cert-badge kaust" style="background:rgba(0, 86, 210, 0.1); border-color:rgba(0, 86, 210, 0.3); color:#3b82f6;">Coursera · DeepLearning.AI</span>
+          <span class="cert-badge dlai">DeepLearning.AI</span>
           <span class="cert-badge hours">3 Courses</span>
           <span class="cert-badge hours">Dec 2025</span>
         </div>
         <h3>Mathematics for Machine Learning & Data Science</h3>
-        <p>Specialization covering the core mathematical foundations required for ML and Data Science. Completed all 3 courses with verified certificate.</p>
-        <div class="tags"><span>Linear Algebra</span><span>Calculus for ML</span><span>Probability & Statistics</span></div>
-        <a href="https://coursera.org/share/1d6728281aa8323ff35fa5a9e47154ca" target="_blank" class="github-link" style="display: flex; align-items: center; gap: 8px; margin-top: 15px; color: var(--cyan); text-decoration: none; font-size: 0.85rem; font-weight: 600;">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          View Certificate
+        <p>Specialization covering the full mathematical foundation for ML and Data Science — taught by Luis Serrano via Coursera. Completed all 3 courses with verified certificates.</p>
+        <!-- Individual courses with verify links -->
+        <div class="cert-courses">
+          <a href="https://coursera.org/verify/STQTWR68YXZG" target="_blank" class="cert-course-item">
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Linear Algebra for Machine Learning and Data Science
+          </a>
+          <a href="https://coursera.org/verify/FF9PN915J2GG" target="_blank" class="cert-course-item">
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Calculus for Machine Learning and Data Science
+          </a>
+          <a href="https://coursera.org/verify/RQ5LXCG90CBA" target="_blank" class="cert-course-item">
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Probability & Statistics for Machine Learning & Data Science
+          </a>
+        </div>
+        <!-- Specialization certificate -->
+        <a href="https://coursera.org/verify/specialization/MMFLLWBA8LHW" target="_blank" class="cert-link">
+          <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          View Specialization Certificate
         </a>
       </div>
     </div>
-     
-    <!-- 5. KAU AI Track -->
+
+    <!-- 4. Python Prerequisites — KAUST Academy × University of Michigan -->
+    <div class="project-card">
+      <div class="project-content">
+        <h1>🐍</h1>
+        <div class="cert-meta">
+          <span class="cert-badge kaust">KAUST Academy</span>
+          <span class="cert-badge michigan">U of Michigan</span>
+          <span class="cert-badge hours">5 Courses</span>
+          <span class="cert-badge hours">Jun 2026</span>
+        </div>
+        <h3>Prerequisite Courses of AI — Python Basics</h3>
+        <p>KAUST Academy program covering Python fundamentals as AI prerequisites — powered by University of Michigan via Coursera. Completed all 5 courses with verified certificates.</p>
+        <!-- Individual courses with their exact certificate names and verify links -->
+        <div class="cert-courses">
+          <a href="https://coursera.org/verify/KCPYLHV11ZNN" target="_blank" class="cert-course-item">
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Python Basics
+          </a>
+          <a href="https://coursera.org/verify/A24IHE4GZO8I" target="_blank" class="cert-course-item">
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Python Functions, Files, and Dictionaries
+          </a>
+          <a href="https://coursera.org/verify/P7PBAMO53RFK" target="_blank" class="cert-course-item">
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Python Classes and Inheritance
+          </a>
+          <a href="https://coursera.org/verify/UCWT424Y8QJ3" target="_blank" class="cert-course-item">
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Data Collection and Processing with Python
+          </a>
+          <a href="https://coursera.org/verify/9R73FI0139MM" target="_blank" class="cert-course-item">
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Introduction to Data Science in Python
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. KAU AI Academic Track -->
     <div class="project-card">
       <div class="project-content">
         <h1>🏆</h1>
@@ -1042,12 +780,14 @@ footer img{width:65px;height:65px;object-fit:cover;border-radius:50%;border:1px 
           <span class="cert-badge hours">Jan 2026</span>
         </div>
         <h3>Academic Track — Artificial Intelligence</h3>
-        <p>Completed the AI academic track at KAU covering core AI principles, machine learning models, and applied AI problem-solving techniques.</p>
-        <div class="tags"><span>AI Track</span><span>Machine Learning</span><span>KAU</span></div>
+        <p>Completed the AI academic track at KAU covering core AI principles, machine learning models, data analysis methods, and applied AI problem-solving techniques.</p>
+        <div class="tags">
+          <span>AI Track</span><span>Machine Learning</span><span>KAU</span><span>Applied AI</span>
+        </div>
       </div>
     </div>
 
-    <!-- 6. KAU Programming Track -->
+    <!-- 6. KAU Advanced Programming Track -->
     <div class="project-card">
       <div class="project-content">
         <h1>💻</h1>
@@ -1056,12 +796,14 @@ footer img{width:65px;height:65px;object-fit:cover;border-radius:50%;border:1px 
           <span class="cert-badge hours">Jan 2026</span>
         </div>
         <h3>Academic Track — Advanced Programming</h3>
-        <p>Advanced programming track covering software engineering principles, algorithms, data structures, and modern programming paradigms.</p>
-        <div class="tags"><span>Algorithms</span><span>Data Structures</span><span>KAU</span></div>
+        <p>Advanced programming track at KAU covering software engineering principles, algorithms, data structures, and problem-solving using modern programming paradigms.</p>
+        <div class="tags">
+          <span>Advanced Programming</span><span>Algorithms</span><span>Data Structures</span><span>KAU</span>
+        </div>
       </div>
     </div>
 
-    <!-- 7. Academic Excellence -->
+    <!-- 7. KAU Academic Excellence -->
     <div class="project-card">
       <div class="project-content">
         <h1>⭐</h1>
@@ -1070,14 +812,16 @@ footer img{width:65px;height:65px;object-fit:cover;border-radius:50%;border:1px 
           <span class="cert-badge hours">2021 – 2026</span>
         </div>
         <h3>Academic Excellence — 5 Consecutive Years</h3>
-        <p>Awarded for maintaining a GPA of 4.9/5 across 5 consecutive academic years at the Faculty of Computing and Information Technology.</p>
-        <div class="tags"><span>GPA 4.9/5</span><span>Academic Excellence</span><span>FCIT</span></div>
+        <p>Awarded the Certificate of Excellence for maintaining a GPA of 4.9/5 across 5 consecutive academic years (2021–2026) at the Faculty of Computing and Information Technology.</p>
+        <div class="tags">
+          <span>GPA 4.9/5</span><span>5 Years</span><span>Academic Excellence</span><span>FCIT</span>
+        </div>
       </div>
     </div>
 
   </div>
 </section>
-   
+
 <!-- ============================================================
      CONTACT SECTION
      ============================================================ -->
@@ -1135,7 +879,7 @@ document.addEventListener('mousemove', e => {
 });
 
 /* ============================================================
-   SCROLL PROGRESS BAR — Updates width based on scroll position
+   SCROLL PROGRESS BAR
    ============================================================ */
 const progressBar = document.getElementById('progressBar');
 window.addEventListener('scroll', () => {
@@ -1147,18 +891,14 @@ window.addEventListener('scroll', () => {
 
 /* ============================================================
    DARK / LIGHT MODE TOGGLE
-   Saves preference to localStorage so it persists on reload
    ============================================================ */
 const themeToggle = document.getElementById('themeToggle');
 const themeIcon = document.getElementById('themeIcon');
 const html = document.documentElement;
-
-// Apply saved preference on load
 if (localStorage.getItem('theme') === 'light') {
   html.classList.add('light');
   themeIcon.textContent = '☀️';
 }
-
 themeToggle.addEventListener('click', () => {
   html.classList.toggle('light');
   const isLight = html.classList.contains('light');
@@ -1183,7 +923,7 @@ mobileMenu.querySelectorAll('a').forEach(link => {
 });
 
 /* ============================================================
-   ACTIVE NAV LINK — IntersectionObserver highlights current section
+   ACTIVE NAV LINK
    ============================================================ */
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('#navLinks a, #mobileMenu a');
@@ -1201,7 +941,7 @@ const sectionObserver = new IntersectionObserver((entries) => {
 sections.forEach(s => sectionObserver.observe(s));
 
 /* ============================================================
-   TYPING ANIMATION — Typewriter effect cycling through roles
+   TYPING ANIMATION
    ============================================================ */
 const roles = ['AI & Data Analyst','Machine Learning Engineer','Data Scientist','Business Intelligence Dev'];
 let roleIndex = 0, charIndex = 0, isDeleting = false;
