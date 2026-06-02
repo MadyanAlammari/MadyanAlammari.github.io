@@ -324,19 +324,47 @@ section{padding:120px 8%;}
 .project-content p{color:var(--muted);line-height:1.8;margin-bottom:20px;flex:1;}
 .tags{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px;}
 .tags span{padding:8px 14px;background:var(--skill-bg);border-radius:999px;font-size:.8rem;border:1px solid var(--border);color:var(--text);}
-.github-link{
-  display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:12px;
-  background:var(--skill-bg);border:1px solid var(--border);
-  color:var(--text);text-decoration:none;font-size:.9rem;font-weight:600;
-  transition:.3s;width:fit-content;margin-top:auto;
+/* ============================================================
+   CERTIFICATE BUTTON STYLE & HOVER EFFECT
+   Matches the exact gradient and lift effect of the skills pills
+   ============================================================ */
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 20px;
+  border-radius: 12px;
+  background: var(--skill-bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  text-decoration: none;
+  font-size: .9rem;
+  font-weight: 600;
+  transition: .3s;
+  width: fit-content;
+  margin-top: auto;
 }
+
 .github-link:hover {
+  /* Match the skills pill hover gradient and animation */
   background: linear-gradient(90deg, var(--pink), var(--cyan));
   border-color: transparent;
-  transform: translateY(-5px); /* Matches the -5px lift of .skill:hover */
+  transform: translateY(-5px); /* Changed from -3px to -5px to match skills */
   color: #fff;
-}.github-link svg{width:18px;height:18px;fill:currentColor;flex-shrink:0;}
+}
 
+.github-link svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+/* Light mode override to maintain consistent hover colors */
+html.light .github-link:hover {
+  background: linear-gradient(90deg, var(--pink), var(--cyan));
+  color: #fff;
+}
 <!-- ============================================================
      CERTIFICATIONS SECTION
      ============================================================ -->
@@ -344,51 +372,52 @@ section{padding:120px 8%;}
   <h2 class="section-title">Certificates</h2>
   <div class="projects-grid">
 
-    <!-- Math for ML Specialization — DeepLearning.AI -->
     <div class="project-card">
       <div class="project-content">
         <h1>📐</h1>
         <div class="cert-meta">
-          <span class="cert-badge kaust">DeepLearning.AI · Coursera</span>
+          <span class="cert-badge kaust">Coursera · Serrano Academy</span>
           <span class="cert-badge hours">3 Courses</span>
           <span class="cert-badge hours">Dec 2025</span>
         </div>
         <h3>Mathematics for Machine Learning & Data Science</h3>
-        <p>Specialization covering the full mathematical foundation required for ML and Data Science — taught by Luis Serrano at Serrano Academy via DeepLearning.AI.</p>
+        <p>Specialization covering the core mathematical foundations required for ML and Data Science. Completed all 3 courses with verified certificate.</p>
         <div class="tags">
           <span>Linear Algebra</span>
           <span>Calculus for ML</span>
           <span>Probability & Statistics</span>
         </div>
-        <a href="https://coursera.org/verify/specialization/MMFLLWBA8LHW" target="_blank" class="github-link">
+        <a href="https://coursera.org/share/1d6728281aa8323ff35fa5a9e47154ca" target="_blank" class="github-link">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          Verify Certificate
+          View Certificate
         </a>
       </div>
     </div>
 
-    <!-- KAUST Python Prerequisite Badge -->
     <div class="project-card">
       <div class="project-content">
         <h1>🐍</h1>
         <div class="cert-meta">
-          <span class="cert-badge kaust">KAUST Academy · Coursera</span>
+          <span class="cert-badge kaust">Coursera · University of Michigan</span>
           <span class="cert-badge hours">5 Courses</span>
-          <span class="cert-badge hours">Jun 2026</span>
+          <span class="cert-badge hours">2024</span>
         </div>
-        <h3>Prerequisite Courses of AI — Python Basics</h3>
-        <p>KAUST Academy program covering Python fundamentals as prerequisites for AI. Completed all 5 courses including data science, OOP, file handling, and data collection with Python.</p>
+        <h3>Python for Everybody Specialization</h3>
+        <p>University of Michigan specialization covering Python programming, data structures, web data access, databases, and a capstone project. Completed all 5 courses.</p>
         <div class="tags">
           <span>Python Basics</span>
-          <span>Functions & Files</span>
-          <span>Classes & OOP</span>
-          <span>Data Collection</span>
-          <span>Intro to Data Science</span>
+          <span>Data Structures</span>
+          <span>Web Data & APIs</span>
+          <span>Databases & SQL</span>
+          <span>Capstone Project</span>
         </div>
+        <a href="https://coursera.org/share/66a5686aac1b290f120c7439a723aee1" target="_blank" class="github-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          View Certificate
+        </a>
       </div>
     </div>
 
-    <!-- KAUST Advanced AI -->
     <div class="project-card">
       <div class="project-content">
         <h1>🧠</h1>
@@ -405,7 +434,6 @@ section{padding:120px 8%;}
       </div>
     </div>
 
-    <!-- KAUST Introductory AI -->
     <div class="project-card">
       <div class="project-content">
         <h1>🤖</h1>
@@ -422,7 +450,6 @@ section{padding:120px 8%;}
       </div>
     </div>
 
-    <!-- KAU AI Track -->
     <div class="project-card">
       <div class="project-content">
         <h1>🏆</h1>
@@ -438,7 +465,6 @@ section{padding:120px 8%;}
       </div>
     </div>
 
-    <!-- KAU Programming Track -->
     <div class="project-card">
       <div class="project-content">
         <h1>💻</h1>
@@ -454,7 +480,6 @@ section{padding:120px 8%;}
       </div>
     </div>
 
-    <!-- KAU Excellence -->
     <div class="project-card">
       <div class="project-content">
         <h1>⭐</h1>
