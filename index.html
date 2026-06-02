@@ -330,8 +330,12 @@ section{padding:120px 8%;}
   color:var(--text);text-decoration:none;font-size:.9rem;font-weight:600;
   transition:.3s;width:fit-content;margin-top:auto;
 }
-.github-link:hover{background:linear-gradient(90deg,var(--pink),var(--cyan));border-color:transparent;transform:translateY(-3px);color:#fff;}
-.github-link svg{width:18px;height:18px;fill:currentColor;flex-shrink:0;}
+.github-link:hover {
+  background: linear-gradient(90deg, var(--pink), var(--cyan));
+  border-color: transparent;
+  transform: translateY(-5px); /* Matches the -5px lift of .skill:hover */
+  color: #fff;
+}.github-link svg{width:18px;height:18px;fill:currentColor;flex-shrink:0;}
 
 <!-- ============================================================
      CERTIFICATIONS SECTION
