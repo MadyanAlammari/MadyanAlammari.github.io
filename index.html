@@ -941,7 +941,7 @@ const sectionObserver = new IntersectionObserver((entries) => {
       });
     }
   });
-}, { threshold: 0.35 });
+}, { threshold: 0.05, rootMargin: '0px 0px -10% 0px' });
 sections.forEach(s => sectionObserver.observe(s));
 
 /* ============================================================
